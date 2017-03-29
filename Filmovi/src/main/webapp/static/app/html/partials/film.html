@@ -1,0 +1,52 @@
+<h1>Film</h1>
+<div ng-controller="filmCtrl">
+
+<form>
+	<label for="name">Naziv filma: </label><input id="name" type="text" ng-model='film.name' class="form-control"><br>
+	<button  ng-click="nadji(film.name)" class="btn btn-primary">Pretraga omdb</button>
+</form>
+<br>
+<a href="http://localhost:8080/static/app/html/index.html/#!/filmovi">
+<button class="btn btn-warning">Nazad na listu</button>
+	</a>
+<hr>
+<div class="row">
+	<div  class="col-md-4">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+			<h1>{{movie.Title}}</h1>
+			</div>
+				<div class="panel-body">
+					<label>Movie Genre:</label><h4>{{movie.Genre}}<br></h4>
+					<label>Year of production: </label><h5>{{movie.Year}}<br></h5>
+					<label>Rated: </label><h5>{{movie.Rated}}<br></h5>
+					<label>Language: </label><h5>{{movie.Language}}<br></h5>
+					<label>Awards: </label><h5>{{movie.Awards}}</h5>
+				</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-danger" >
+			<div class="panel-heading"><label>Cast</label></div>
+			
+				<div class="panel-body">
+					{{movie.Actors}}
+			
+				</div>
+		</div>	
+	
+	</div>
+
+	<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<label>Storyline</label>
+			</div>
+				<div class="panel-body">
+					{{movie.Plot}}
+				</div>
+			
+		</div>
+		
+	</div>
+ </div>

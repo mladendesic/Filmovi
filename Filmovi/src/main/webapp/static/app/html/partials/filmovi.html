@@ -1,0 +1,37 @@
+<h1>Filmovi</h1>
+
+<div ng-controller='myCtrl'>
+<form>
+<label for = "name">Dodaj u listu </label> <input id="name" type="text" ng-model='film.name' class="form-control">
+<button  ng-click="unos()" class="btn btn-success" >sacuvaj</button>
+</form>
+<form>
+	<label for="filter">Pretrazi po imenu </label><input id="filter" type="text" ng-model='filterFilm.name' class="form-control">
+	<button ng-click="filtriraj()" class="btn btn-success">filtriraj</button>
+</form>
+<hr>
+<div class="btn-goup pull-right">
+	<button class="btn btn-primary" ng-disabled="brojacStranice<=0" ng-click="changePage(-1)">prev</button>
+	<button class="btn btn-primary" ng-disabled="brojacStranice>=totalPages-1" ng-click="changePage(1)">next</button>
+	
+</div>
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>Redni broj </th>
+			<th> Naziv filma </th>
+			<th> Opcije </th>
+		</tr>
+
+		<tr ng-repeat="film in filmovi">
+			<td>{{film.id}}</td>
+			<td>{{film.name}}</td>
+			<td>
+			<button ng-click="brisanje(film.id)" class="btn btn-danger">obrisi</button>
+			<button ng-click= "postaviFilm(film)" class="btn btn-success">izmeni</button>
+			<button ng-click="nadjiNaStranici(film)" class="btn btn-warning">postavi na stranici</button>
+			</td>
+		</tr>
+		
+	</table>
+	
+</div>
